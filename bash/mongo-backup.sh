@@ -24,6 +24,9 @@ mongo -u admin -p thepassword admin --eval "printjson(db.fsyncUnlock())"
 
 #todo
 #delete old snapshots
-
+#aws ec2 describe-snapshots | grep booklaunch | sort -r -k 5 | sed 1,6d | awk '{print "Deleting snapshot: " $2}; system("aws ec2 delete-snapshot " $2)'
 
 echo "Finished mongo backup!"
+
+
+
