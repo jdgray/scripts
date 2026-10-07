@@ -1,0 +1,16 @@
+--- Import microsite script ---
+python3 partners_csv_post_microsites.py loans.csv
+python3 partners_csv_post_microsites.py loans.csv --dry-run
+python3 partners_csv_post_microsites.py loans.csv --limit 3
+python3 partners_csv_post_microsites.py loans.csv --outfile results.tsv
+
+--- Get dossier id from url ---
+python3 partners_microsite_urls_to_dossier_ids.py sites.csv
+python3 partners_microsite_urls_to_dossier_ids.py sites.csv --outfile with_dossiers.csv
+python3 partners_microsite_urls_to_dossier_ids.py sites.csv --url-column Site --limit 5
+python3 partners_microsite_urls_to_dossier_ids.py sites.csv --delay 0.2
+
+--- POST lead to cindie.ai ---
+python3 partners_csv_post_cindie_leads.py --csv data/export-9.30.csv --dry-run
+python3 partners_csv_post_cindie_leads.py --csv data/export-9.30.csv --limit 3
+python3 partners_csv_post_cindie_leads.py data/export-9.30.csv --outfile results.tsv
